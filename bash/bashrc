@@ -28,20 +28,20 @@ function ps1_git {
 function ps1_config {
 	if $enable_colors ; then
 		# Barvy
-		local grey="\[$(tput setaf 8)\]"
+		local grey="\[$(tput setaf 0)\]"
 		local red="\[$(tput setaf 1)\]"
 		local blue="\[$(tput setaf 4)\]"
 		local yellow="\[$(tput setaf 3)\]"
 		local bold="\[$(tput bold)\]"
 		local reset="\[$(tput sgr0)\]"
 
-		echo "${bold}${grey}[ ${red}\W ${grey}]${blue}\$(ps1_git)${grey} ~> ${reset}"
+		echo "${bold}${grey}[${red} \W ${grey}]${blue}\$(ps1_git)${grey} --> ${reset}"
 	else
 		echo "[ \u@\h \W \$(ps1_git)] "
 	fi
 }
 
-PS1=$(ps1_config)
+export PS1=$(ps1_config)
 
 # Enable colors for files and directories
 if ${enable_colors} ; then
