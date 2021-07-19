@@ -6,6 +6,9 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # User specific environment and startup programs
-eval `ssh-agent`
 
-# ssh-add ~/.ssh/github
+# Start SSH Agent
+echo ">>> SSH Agent"
+eval `ssh-agent -s`
+# Add private SSH keys
+ssh-add ~/.ssh/github
