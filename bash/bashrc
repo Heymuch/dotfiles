@@ -20,7 +20,7 @@ function git_branch {
 function ps1_git {
 	local branch=$(git_branch)
 	if [ $branch ] ; then
-		echo " <${branch}>"
+		echo " ${branch}"
 	fi
 }
 
@@ -35,7 +35,7 @@ function ps1_config {
 		local bold="\[$(tput bold)\]"
 		local reset="\[$(tput sgr0)\]"
 
-		echo "${bold}${grey}[${red} \W ${grey}]${blue}\$(ps1_git)${grey} --> ${reset}"
+		echo "${bold}${grey}<${red} \W${grey}${blue}\$(ps1_git) ${grey}>${reset} "
 	else
 		echo "[ \u@\h \W \$(ps1_git)] "
 	fi
@@ -69,7 +69,7 @@ alias htop='htop -t'
 alias gradle_jdk12="docker run --name gradle_jdk12 --rm -it -v \$(pwd):/app -u \$(id -u):\$(id -u) -w /app gradle:jdk12 bash"
 
 # PATH
-export PATH=$PATH:~/.emacs.d/bin
+export PATH="$PATH:~/.emacs.d/bin:~/.local/bin/go/bin"
 
 # Command history
 # number of history lines
@@ -91,4 +91,4 @@ shopt -s globstar
 shopt -s expand_aliases
 
 # SUDO prompt
-export SUDO_PROMPT="$(tput bold)$(tput setaf 8)[$(tput setaf 1) JUST SAY IT! $(tput setaf 8)] ~>$(tput sgr0) "
+export SUDO_PROMPT="$(tput bold)$(tput setaf 8)<$(tput setaf 1) ARE YOU SURE? O_o $(tput setaf 8)>$(tput sgr0) "
