@@ -1,0 +1,4 @@
+#include ".github/nord-xresources/src/nord"
+
+URxvt.font: xft:JetBrains Mono:size=12
+URxvt.scrollBar: false
