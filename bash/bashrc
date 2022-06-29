@@ -35,9 +35,9 @@ function ps1_config {
 		local bold="\[$(tput bold)\]"
 		local reset="\[$(tput sgr0)\]"
 
-		echo "${bold}${grey}<${red} \W${grey}${blue}\$(ps1_git) ${grey}>${reset} "
+		echo "${bold}${blue}.: ${red}\W${blue} :.${reset} "
 	else
-		echo "[ \u@\h \W \$(ps1_git)] "
+		echo "[ \u@\h \W] "
 	fi
 }
 
@@ -91,4 +91,5 @@ shopt -s globstar
 shopt -s expand_aliases
 
 # SUDO prompt
-export SUDO_PROMPT="$(tput bold)$(tput setaf 8)<$(tput setaf 1) ARE YOU SURE? O_o $(tput setaf 8)>$(tput sgr0) "
+export SUDO_PROMPT="$(tput bold)$(tput setaf 4)?!?$(tput setaf 1) ARE YOU SURE? O_o $(tput setaf 4)?!?$(tput sgr0) "
+
